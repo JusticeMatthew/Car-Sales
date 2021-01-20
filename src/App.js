@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { addFeature, removeFeature } from './actions';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -12,27 +9,15 @@ const App = (props) => {
   return (
     <div className='boxes'>
       <div className='box'>
-        <Header car={props.car} />
-        <AddedFeatures car={props.car} removeFeature={props.removeFeature} />
+        <Header />
+        <AddedFeatures />
       </div>
       <div className='box'>
-        <AdditionalFeatures
-          additionalFeatures={props.additionalFeatures}
-          addFeature={props.addFeature}
-        />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
+        <AdditionalFeatures />
+        <Total />
       </div>
     </div>
   );
 };
 
-// Since it's a small app I grabbed all my state here and just passed it down. You could do the same thing in any component though to access the state anywhere in the app.
-const mapStateToProps = (state) => {
-  return {
-    additionalPrice: state.additionalPrice,
-    car: state.car,
-    additionalFeatures: state.additionalFeatures,
-  };
-};
-
-export default connect(mapStateToProps, { addFeature, removeFeature })(App);
+export default App;

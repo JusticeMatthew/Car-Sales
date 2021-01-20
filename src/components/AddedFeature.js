@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { removeFeature } from '../actions';
 
 const AddedFeature = (props) => {
   return (
@@ -15,4 +18,4 @@ const AddedFeature = (props) => {
   );
 };
 
-export default AddedFeature;
+export default connect(() => {}, { removeFeature })(AddedFeature);
